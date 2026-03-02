@@ -47,6 +47,7 @@ namespace PasswordCrackerCentralized
             Console.WriteLine(string.Join(", ", result));
             Console.WriteLine("Out of {0} password {1} was found ", userInfos.Count, result.Count);
             Console.WriteLine();
+            Console.WriteLine("Workers used: {0}", _workerCount);
             Console.WriteLine("Time elapsed: {0}", stopwatch.Elapsed);
         }
 
