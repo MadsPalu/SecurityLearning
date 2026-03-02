@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\madsp\\Downloads\\PasswordCrackerCentralized\\PasswordCrackerCentralized\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6B7D33BB-D08A-4075-9AFF-A45A97EBF644}|PasswordCrackerCentralized\\PasswordCrackerCentralized.csproj|c:\\users\\madsp\\downloads\\passwordcrackercentralized\\passwordcrackercentralized\\passwordcrackercentralized\\cracking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B7D33BB-D08A-4075-9AFF-A45A97EBF644}|PasswordCrackerCentralized\\PasswordCrackerCentralized.csproj|solutionrelative:passwordcrackercentralized\\cracking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B7D33BB-D08A-4075-9AFF-A45A97EBF644}|PasswordCrackerCentralized\\PasswordCrackerCentralized.csproj|c:\\users\\madsp\\downloads\\passwordcrackercentralized\\passwordcrackercentralized\\passwordcrackercentralized\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B7D33BB-D08A-4075-9AFF-A45A97EBF644}|PasswordCrackerCentralized\\PasswordCrackerCentralized.csproj|solutionrelative:passwordcrackercentralized\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B7D33BB-D08A-4075-9AFF-A45A97EBF644}|PasswordCrackerCentralized\\PasswordCrackerCentralized.csproj|c:\\users\\madsp\\downloads\\passwordcrackercentralized\\passwordcrackercentralized\\passwordcrackercentralized\\util\\passwordfilehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B7D33BB-D08A-4075-9AFF-A45A97EBF644}|PasswordCrackerCentralized\\PasswordCrackerCentralized.csproj|solutionrelative:passwordcrackercentralized\\util\\passwordfilehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B7D33BB-D08A-4075-9AFF-A45A97EBF644}|PasswordCrackerCentralized\\PasswordCrackerCentralized.csproj|c:\\users\\madsp\\downloads\\passwordcrackercentralized\\passwordcrackercentralized\\passwordcrackercentralized\\util\\stringutilities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B7D33BB-D08A-4075-9AFF-A45A97EBF644}|PasswordCrackerCentralized\\PasswordCrackerCentralized.csproj|solutionrelative:passwordcrackercentralized\\util\\stringutilities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\madsp\\Downloads\\PasswordCrackerCentralized\\PasswordCrackerCentralized\\PasswordCrackerCentralized\\Program.cs",
+              "RelativeDocumentMoniker": "PasswordCrackerCentralized\\Program.cs",
+              "ToolTip": "C:\\Users\\madsp\\Downloads\\PasswordCrackerCentralized\\PasswordCrackerCentralized\\PasswordCrackerCentralized\\Program.cs",
+              "RelativeToolTip": "PasswordCrackerCentralized\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T12:51:17.598Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Cracking.cs",
+              "DocumentMoniker": "C:\\Users\\madsp\\Downloads\\PasswordCrackerCentralized\\PasswordCrackerCentralized\\PasswordCrackerCentralized\\Cracking.cs",
+              "RelativeDocumentMoniker": "PasswordCrackerCentralized\\Cracking.cs",
+              "ToolTip": "C:\\Users\\madsp\\Downloads\\PasswordCrackerCentralized\\PasswordCrackerCentralized\\PasswordCrackerCentralized\\Cracking.cs",
+              "RelativeToolTip": "PasswordCrackerCentralized\\Cracking.cs",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAwwA8AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T12:50:12.439Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "StringUtilities.cs",
+              "DocumentMoniker": "C:\\Users\\madsp\\Downloads\\PasswordCrackerCentralized\\PasswordCrackerCentralized\\PasswordCrackerCentralized\\util\\StringUtilities.cs",
+              "RelativeDocumentMoniker": "PasswordCrackerCentralized\\util\\StringUtilities.cs",
+              "ToolTip": "C:\\Users\\madsp\\Downloads\\PasswordCrackerCentralized\\PasswordCrackerCentralized\\PasswordCrackerCentralized\\util\\StringUtilities.cs",
+              "RelativeToolTip": "PasswordCrackerCentralized\\util\\StringUtilities.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T12:50:07.858Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PasswordFileHandler.cs",
+              "DocumentMoniker": "C:\\Users\\madsp\\Downloads\\PasswordCrackerCentralized\\PasswordCrackerCentralized\\PasswordCrackerCentralized\\util\\PasswordFileHandler.cs",
+              "RelativeDocumentMoniker": "PasswordCrackerCentralized\\util\\PasswordFileHandler.cs",
+              "ToolTip": "C:\\Users\\madsp\\Downloads\\PasswordCrackerCentralized\\PasswordCrackerCentralized\\PasswordCrackerCentralized\\util\\PasswordFileHandler.cs",
+              "RelativeToolTip": "PasswordCrackerCentralized\\util\\PasswordFileHandler.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T12:50:08.149Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
