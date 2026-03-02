@@ -13,15 +13,6 @@ namespace PasswordCrackerCentralized
 {
     public class Cracking
     {
-        private readonly int _workerCount;
-        private readonly bool _verbose;
-
-        public Cracking(int? workerCount = null, bool verbose = false)
-        {
-            _workerCount = workerCount ?? Environment.ProcessorCount;
-            _verbose = verbose;
-        }
-
         /// <summary>
         /// Runs the password cracking algorithm
         /// </summary>
@@ -30,7 +21,7 @@ namespace PasswordCrackerCentralized
             Stopwatch stopwatch = Stopwatch.StartNew();
 
             List<UserInfo> userInfos = PasswordFileHandler.ReadPasswordFile("passwords.txt");
-            Console.WriteLine("passwd opened");
+            Console.WriteLine("passwd opeend");
 
             Dictionary<string, List<UserInfo>> usersByHash = BuildUsersByHash(userInfos);
             ConcurrentDictionary<string, UserInfoClearText> crackedUsers =
@@ -39,20 +30,14 @@ namespace PasswordCrackerCentralized
             IEnumerable<string> dictionaryEntries = File.ReadLines("webster-dictionary.txt");
             ParallelOptions parallelOptions = new ParallelOptions
             {
-                MaxDegreeOfParallelism = _workerCount
+                MaxDegreeOfParallelism = Environment.ProcessorCount
             };
 
             // Master/worker setup: master feeds dictionary entries, workers test all word variations.
-            Parallel.ForEach(
-                dictionaryEntries,
-                parallelOptions,
-                () => (HashAlgorithm) new SHA1CryptoServiceProvider(),
-                (dictionaryEntry, loopState, index, messageDigest) =>
-                {
-                    CheckWordWithVariations(dictionaryEntry, usersByHash, crackedUsers, messageDigest);
-                    return messageDigest;
-                },
-                messageDigest => messageDigest.Dispose());
+            Parallel.ForEach(dictionaryEntries, parallelOptions, dictionaryEntry =>
+            {
+                CheckWordWithVariations(dictionaryEntry, usersByHash, crackedUsers);
+            });
 
             List<UserInfoClearText> result = crackedUsers.Values
                 .OrderBy(entry => entry.Username)
@@ -89,32 +74,34 @@ namespace PasswordCrackerCentralized
         /// <summary>
         /// Generates a lot of variations, encrypts each and compares to all entries in the password file
         /// </summary>
-        private void CheckWordWithVariations(
+        private static void CheckWordWithVariations(
             string dictionaryEntry,
             IReadOnlyDictionary<string, List<UserInfo>> usersByHash,
-            ConcurrentDictionary<string, UserInfoClearText> crackedUsers,
-            HashAlgorithm messageDigest)
+            ConcurrentDictionary<string, UserInfoClearText> crackedUsers)
         {
-            CheckSingleWord(usersByHash, crackedUsers, dictionaryEntry, messageDigest);
-            CheckSingleWord(usersByHash, crackedUsers, dictionaryEntry.ToUpper(), messageDigest);
-            CheckSingleWord(usersByHash, crackedUsers, StringUtilities.Capitalize(dictionaryEntry), messageDigest);
-            CheckSingleWord(usersByHash, crackedUsers, StringUtilities.Reverse(dictionaryEntry), messageDigest);
-
-            for (int i = 0; i < 100; i++)
+            using (HashAlgorithm messageDigest = new SHA1CryptoServiceProvider())
             {
-                CheckSingleWord(usersByHash, crackedUsers, dictionaryEntry + i, messageDigest);
-            }
+                CheckSingleWord(usersByHash, crackedUsers, dictionaryEntry, messageDigest);
+                CheckSingleWord(usersByHash, crackedUsers, dictionaryEntry.ToUpper(), messageDigest);
+                CheckSingleWord(usersByHash, crackedUsers, StringUtilities.Capitalize(dictionaryEntry), messageDigest);
+                CheckSingleWord(usersByHash, crackedUsers, StringUtilities.Reverse(dictionaryEntry), messageDigest);
 
-            for (int i = 0; i < 100; i++)
-            {
-                CheckSingleWord(usersByHash, crackedUsers, i + dictionaryEntry, messageDigest);
-            }
-
-            for (int i = 0; i < 10; i++)
-            {
-                for (int j = 0; j < 10; j++)
+                for (int i = 0; i < 100; i++)
                 {
-                    CheckSingleWord(usersByHash, crackedUsers, i + dictionaryEntry + j, messageDigest);
+                    CheckSingleWord(usersByHash, crackedUsers, dictionaryEntry + i, messageDigest);
+                }
+
+                for (int i = 0; i < 100; i++)
+                {
+                    CheckSingleWord(usersByHash, crackedUsers, i + dictionaryEntry, messageDigest);
+                }
+
+                for (int i = 0; i < 10; i++)
+                {
+                    for (int j = 0; j < 10; j++)
+                    {
+                        CheckSingleWord(usersByHash, crackedUsers, i + dictionaryEntry + j, messageDigest);
+                    }
                 }
             }
         }
@@ -122,7 +109,7 @@ namespace PasswordCrackerCentralized
         /// <summary>
         /// Checks a single candidate by hashing it once and doing O(1) lookup in the encrypted-password index
         /// </summary>
-        private void CheckSingleWord(
+        private static void CheckSingleWord(
             IReadOnlyDictionary<string, List<UserInfo>> usersByHash,
             ConcurrentDictionary<string, UserInfoClearText> crackedUsers,
             string possiblePassword,
@@ -140,7 +127,7 @@ namespace PasswordCrackerCentralized
 
             foreach (UserInfo userInfo in matches)
             {
-                if (crackedUsers.TryAdd(userInfo.Username, new UserInfoClearText(userInfo.Username, possiblePassword)) && _verbose)
+                if (crackedUsers.TryAdd(userInfo.Username, new UserInfoClearText(userInfo.Username, possiblePassword)))
                 {
                     Console.WriteLine(userInfo.Username + " " + possiblePassword);
                 }
